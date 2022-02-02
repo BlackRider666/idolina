@@ -9,6 +9,6 @@ module.exports = {
     },
     devServer: {
         compress: true,
-        public: 'wrp.org.ua',
+        public: 'i-dolina.space',
     }
 }
