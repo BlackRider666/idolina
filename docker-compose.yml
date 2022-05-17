@@ -13,6 +13,9 @@ services:
       - ./docker/certs:/etc/nginx/certs
     networks:
       - idolina_network
+    links:
+      - api_idolina
+      - client_idolina
 
   db_idolina:
     image: mysql:5.7.22
@@ -34,7 +37,7 @@ services:
     networks:
       - idolina_network
 
-  api:
+  api_idolina:
     build:
       args:
         user: vlad
@@ -49,8 +52,10 @@ services:
       - ./api:/var/www/api
     networks:
       - idolina_network
+    links:
+      - db_idolina
 
-  client:
+  client_idolina:
     image: node:lts-alpine
     container_name: client_idolina
     tty: true
