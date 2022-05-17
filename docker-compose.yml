@@ -1,12 +1,11 @@
 version: "3.7"
 services:
-  nginx:
+  nginx_idolina:
     image: nginx:1.16-alpine
     container_name: nginx_idolina
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
+      - "83:80"
     volumes:
       - ./api:/var/www/api
       - ./client:/var/www/client
@@ -15,13 +14,13 @@ services:
     networks:
       - idolina_network
 
-  db:
+  db_idolina:
     image: mysql:5.7.22
     container_name: db_idolina
     restart: unless-stopped
     tty: true
     ports:
-      - 3306:3306
+      - "3312:3306"
     environment:
       MYSQL_DATABASE: idolina_app_db
       MYSQL_ROOT_PASSWORD: idolina_app_password

@@ -10,5 +10,6 @@ module.exports = {
     devServer: {
         compress: true,
         public: 'i-dolina.space',
+        // public: 'idolina.local',
     }
 }
